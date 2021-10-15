@@ -18,7 +18,7 @@ class LOCALCOOPTEMPLATE_API UCoOpGameInstance : public UGameInstance
 	virtual void Init() override;
 
 	UPROPERTY()
-	int Players = 4;
+	int Players;
 
 public:
 	UFUNCTION()
