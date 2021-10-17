@@ -3,16 +3,26 @@
 
 #include "CoOpGameInstance.h"
 
-UCoOpGameInstance::UCoOpGameInstance(const FObjectInitializer& ObjectInitializer):Super(ObjectInitializer)
+/*UCoOpGameInstance::UCoOpGameInstance(const FObjectInitializer& ObjectInitializer):Super(ObjectInitializer)
 {
-}
+}*/
 
-void UCoOpGameInstance::Init()
+/*void UCoOpGameInstance::Init()
 {
 	Super::Init();
 }
 
-int UCoOpGameInstance::GetPlayers() const
+void UCoOpGameInstance::Shutdown()
+{
+	Super::Shutdown();
+}
+
+void UCoOpGameInstance::StartGameInstance()
+{
+	Super::StartGameInstance();
+}*/
+
+/*int UCoOpGameInstance::GetPlayers() const
 {
 	return Players;
-}
+}*/

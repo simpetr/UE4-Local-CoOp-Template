@@ -13,14 +13,14 @@ UCLASS()
 class LOCALCOOPTEMPLATE_API UCoOpGameInstance : public UGameInstance
 {
 	GENERATED_BODY()
-
-	UCoOpGameInstance(const FObjectInitializer& ObjectInitializer);
-	virtual void Init() override;
-
-	UPROPERTY()
-	int Players;
-
 public:
-	UFUNCTION()
-	int GetPlayers() const;
+	//UCoOpGameInstance(const FObjectInitializer& ObjectInitializer);
+	/*virtual void Init() override;
+	virtual void Shutdown() override;
+	virtual void StartGameInstance() override;*/
+	//int GetPlayers() const;
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings")
+	int Players =3;
+
+	
 };

@@ -3,7 +3,6 @@
 
 #include "SpawnManager.h"
 #include "CoOpGameInstance.h"
-#include "LocalCoOpTemplateCharacter.h"
 #include "Kismet/GameplayStatics.h"
 
 #define PRINT_ERROR(text) if (GEngine) GEngine->AddOnScreenDebugMessage(-5,2.f, FColor::Red,TEXT(text),false)
@@ -20,32 +19,39 @@ ASpawnManager::ASpawnManager()
 void ASpawnManager::BeginPlay()
 {
 	Super::BeginPlay();
-	UCoOpGameInstance* GI = Cast<UCoOpGameInstance>(GetWorld()->GetGameInstance());
+
+	/*UWorld* World = GetWorld();
+	if(!World) return;*/
+	UCoOpGameInstance* GI = Cast<UCoOpGameInstance>(GetGameInstance());
 	if (GI)
 	{
-		//Players = GI->GetPlayers();
-		UE_LOG(LogTemp, Warning, TEXT("%d"), Players)
+		Players = GI->Players;
 	}
-
+	
 	if (SpawnLocations.Num() > 0)
 	{
-		for (int i = 0; i < 3; i++)
+		FActorSpawnParameters SpawnParameters;
+		SpawnParameters.SpawnCollisionHandlingOverride =
+            ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
+		for (int i = 0; i < Players; i++)
 		{
-			FActorSpawnParameters SpawnParameters;
-			SpawnParameters.SpawnCollisionHandlingOverride =
-				ESpawnActorCollisionHandlingMethod::AdjustIfPossibleButAlwaysSpawn;
-			ACharacter* Player = GetWorld()->SpawnActor<ACharacter>(CharacterToSpawn, SpawnLocations[i],
+			
+			APawn* Player = GetWorld()->SpawnActor<APawn>(CharacterToSpawn, SpawnLocations[i],
 			                                                        FRotator::ZeroRotator, SpawnParameters);
-			if (!Player)
-				PRINT_ERROR("PLAYER NULL");
-			UGameplayStatics::CreatePlayer(GetWorld(), i);
-			APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), i);
-
-			if (Player && PlayerController)
+			if (Player)
 			{
-				PRINT_COMPLEX("Creato giocatore %d", i);
-				PlayerController->Possess(Player);
+				UGameplayStatics::CreatePlayer(GetWorld(), i);
+				APlayerController* PlayerController = UGameplayStatics::GetPlayerController(GetWorld(), i);
+
+				if (PlayerController)
+				{
+					
+					PlayerController->Possess(Player);
+					PRINT_COMPLEX("Creato giocatore %d", i);
+				}
 			}
+				
+			
 		}
 	}
 }

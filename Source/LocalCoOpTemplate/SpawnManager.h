@@ -4,10 +4,9 @@
 
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
-
 #include "SpawnManager.generated.h"
 
-class ACharacter;
+class APawn;
 UCLASS()
 class LOCALCOOPTEMPLATE_API ASpawnManager : public AActor
 {
@@ -19,7 +18,7 @@ public:
 	// Sets default values for this actor's properties
 	ASpawnManager();
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings")
-	TSubclassOf<ACharacter> CharacterToSpawn;
+	TSubclassOf<APawn> CharacterToSpawn;
 
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings")
 	TArray<FVector> SpawnLocations;
