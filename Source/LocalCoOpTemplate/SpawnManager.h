@@ -17,19 +17,33 @@ class LOCALCOOPTEMPLATE_API ASpawnManager : public AActor
 public:	
 	// Sets default values for this actor's properties
 	ASpawnManager();
+
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings")
-	TSubclassOf<APawn> CharacterToSpawn;
+	int Players = 4;
 
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings")
 	TArray<FVector> SpawnLocations;
 	
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings")
+	TSubclassOf<APawn> DefaultCharacterToSpawn;
 
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings")
+	uint32 CustomCharacters:1;
+	
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings",meta=(EditCondition="CustomCharacters"))
+	TArray<TSubclassOf<APawn>> CustomCharacterToSpawn;
+
+
+		
+
+	
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 private:
-	int Players = 4;
-
+	void SpawnPlayerDefault();
+	void SpawnPlayerCustom();
+	
 
 
 };
