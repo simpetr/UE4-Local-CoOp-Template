@@ -28,9 +28,9 @@ public:
 	TSubclassOf<APawn> DefaultCharacterToSpawn;
 
 	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings")
-	uint32 CustomCharacters:1;
+	uint32 bUseCustomCharacters:1;
 	
-	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings",meta=(EditCondition="CustomCharacters"))
+	UPROPERTY(EditAnywhere,BlueprintReadOnly,Category = "Settings",meta=(EditCondition="bUseCustomCharacters"))
 	TArray<TSubclassOf<APawn>> CustomCharacterToSpawn;
 
 

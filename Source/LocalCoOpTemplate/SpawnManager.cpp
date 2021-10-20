@@ -21,7 +21,7 @@ ASpawnManager::ASpawnManager()
 void ASpawnManager::BeginPlay()
 {
 	Super::BeginPlay();
-	if (CustomCharacters)
+	if (bUseCustomCharacters)
 		SpawnPlayerCustom();
 	else
 		SpawnPlayerDefault();
