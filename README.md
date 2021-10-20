@@ -5,7 +5,7 @@ Developed with Unreal Engine 4
 *Ver.1*
 A basic starting point for games that want to support local multiplayer with split-screen. The project is built over the Third Person Template.
 
- *SpawnManager* is the C++ that it is responsable for spawning the right number of players. The class exposes two possible spawning methods:
+ *SpawnManager* is the C++ class that it's responsible for spawning the right number of players. The class exposes two possible spawning methods:
  
  - *SpawnPlayerDefault* spawns the same *APawn* for each player.
  - *SpawnPlayerCustom* spawns a different *APawn* for each player.
