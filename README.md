@@ -14,11 +14,11 @@ All fields can be edited through the blueprint class that derives from the *Spaw
 
 ![BlueprintSettings](https://i.imgur.com/UlbaJ41.png)
 
-![enter image description here](https://imgur.com/UlbaJ41)
+![enter image description here](https://i.imgur.com/NrohPfC.png)
 
 Pad assignment for first player can be enabled/disabled through the checkbox in Project Settings>Maps and Mode.
 By default, first player is going to play with the keyboard.
 
-![pad assignement setting](https://imgur.com/nvh59Sa)
+![pad assignement setting](https://i.imgur.com/nvh59Sa.png)
 
 You can make this project a template for your Unreal Engine installation following: https://docs.unrealengine.com/4.27/en-US/Basics/Projects/CreatingTemplates/
