@@ -12,7 +12,7 @@ A basic starting point for games that want to support local multiplayer with spl
 
 All fields can be edited through the blueprint class that derives from the *SpawnManager* class. 
 
-![BlueprintSettings](https://imgur.com/nvh59Sa)
+![BlueprintSettings](https://i.imgur.com/UlbaJ41.png)
 
 ![enter image description here](https://imgur.com/UlbaJ41)
 
